@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const User = require('./database/models/Business');
+const Business = require('./database/models/Business');
+const hbs = require('express-handlebars');
 
 // data vars
 const PORT = process.env.PORT;

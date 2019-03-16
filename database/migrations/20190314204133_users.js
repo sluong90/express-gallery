@@ -1,18 +1,11 @@
-
-
 exports.up = function (knex, Promise) {
-    return knex.schema.createTable('businesses', (table) => {
+    return knex.schema.createTable('business', (table) => {
         table.increments();
         table.string('business');
     })
 };
 
 exports.down = function (knex, Promise) {
-<<<<<<< HEAD
-    return knex.schema.dropTable('businesses');
-};
-=======
-    return knex.schema.dropTable('users');
+    return knex.schema.dropTable('business');
 };
 
->>>>>>> devss
