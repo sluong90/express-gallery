@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const User = require('./database/models/User');
+const Business = require('./database/models/Business');
+const hbs = require('express-handlebars');
 
 // data vars
 const PORT = process.env.PORT;
@@ -15,36 +16,43 @@ if (!PORT || !SESSION_SECRET || !REDIS_HOSTNAME) { return process.exit(1); }
 // setup server middleware
 const app = express();
 app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.json())
+app.engine('hbs', hbs({
+    defaultLayout: 'home',
+    extname: '.hbs'
+}))
+app.set('view engine', 'hbs');
+app.use('/businesses', Business)
 
 // routes
-app.get('/api/smoke', (req, res) => {
-    res.json({ smoke: 'test' });
+app.get('/', (req, res) => {
+    res.render("homebase")
 });
 
-app.get('/api/users', (req, res) => {
-    // res.json({ fuck: 'fuck' })
+// app.get('/api/users', (req, res) => {
+//     // res.json({ fuck: 'fuck' })
 
-    return new User().fetchAll()
-        .then((users) => {
-            return res.json(users);
-        })
-        .catch((err) => {
-            console.log(err);
-            res.sendStatus(500);
-        });
-});
+//     return new User().fetchAll()
+//         .then((users) => {
+//             return res.json(users);
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//             res.sendStatus(500);
+//         });
+// });
 
-app.post('/api/users', (req, res) => {
-    const username = req.body.username;
-    return new User({ username }).save()
-        .then((user) => {
-            return res.json({ success: true });
-        })
-        .catch((err) => {
-            console.log(err);
-            res.sendStatus(500);
-        });
-})
+// app.post('/api/users', (req, res) => {
+//     const username = req.body.username;
+//     return new User({ username }).save()
+//         .then((user) => {
+//             return res.json({ success: true });
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//             res.sendStatus(500);
+//         });
+// })
 
 // start server
 app.listen(PORT, () => {

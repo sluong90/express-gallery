@@ -1,4 +1,3 @@
-
 exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
   return knex('business').del()
@@ -10,11 +9,13 @@ exports.seed = function (knex, Promise) {
           url: 'url1',
           description: 'descript1'
         },
-        { author: 'author2' ,
+        {
+          author: 'author2',
           url: 'url2',
           description: 'descript2'
         },
-        { author: 'author3',
+        {
+          author: 'author3',
           url: 'url3',
           description: 'descript3'
         }
