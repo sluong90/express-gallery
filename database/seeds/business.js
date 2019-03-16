@@ -1,24 +1,10 @@
 
-// exports.seed = function (knex, Promise) {
-//   // Deletes ALL existing entries
-//   return knex('businesses').del()
-//     .then(function () {
-//       // Inserts seed entries
-//       return knex('businesses').insert([
-//         { business: 'earls' },
-//         { business: 'workPlay' },
-//         { business: 'realGas' }
-//       ]);
-//     });
-// };
-
-
 exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
-  return knex('gallery').del()
+  return knex('business').del()
     .then(function () {
       // Inserts seed entries
-      return knex('gallery').insert([
+      return knex('business').insert([
         { 
           author: 'author1',
           url: 'url1',
