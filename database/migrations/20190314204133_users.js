@@ -8,5 +8,11 @@ exports.up = function (knex, Promise) {
 };
 
 exports.down = function (knex, Promise) {
+<<<<<<< HEAD
     return knex.schema.dropTable('businesses');
 };
+=======
+    return knex.schema.dropTable('users');
+};
+
+>>>>>>> devss
