@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const User = require('./database/models/User');
+const User = require('./database/models/Business');
 
 // data vars
 const PORT = process.env.PORT;

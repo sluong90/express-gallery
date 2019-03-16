@@ -1,12 +1,12 @@
 
 
 exports.up = function (knex, Promise) {
-    return knex.schema.createTable('users', (table) => {
+    return knex.schema.createTable('businesses', (table) => {
         table.increments();
-        table.string('username');
+        table.string('business');
     })
 };
 
 exports.down = function (knex, Promise) {
-    return knex.schema.dropTable('users');
+    return knex.schema.dropTable('businesses');
 };
