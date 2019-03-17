@@ -3,6 +3,9 @@ const bodyParser = require('body-parser');
 const Business = require('./database/models/Business');
 const hbs = require('express-handlebars');
 
+
+// const router = express.Router();
+// const knex = require('../database');
 // data vars
 const PORT = process.env.PORT;
 const SESSION_SECRET = process.env.SESSION_SECRET;
@@ -22,25 +25,36 @@ app.engine('hbs', hbs({
     extname: '.hbs'
 }))
 app.set('view engine', 'hbs');
-app.use('/businesses', Business)
+// app.use('/businesses', Business)
 
 // routes
 app.get('/', (req, res) => {
     res.render("homebase")
 });
 
-// app.get('/api/users', (req, res) => {
-//     // res.json({ fuck: 'fuck' })
 
-//     return new User().fetchAll()
-//         .then((users) => {
-//             return res.json(users);
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//             res.sendStatus(500);
+// router.get('/', function (req, res) {
+//     knex.select('*').from('business')
+//         .then((business) => {
+//             console.log(business);
+//             res.render('business', { business })
 //         });
-// });
+
+// })
+
+app.get('/businesses', (req, res) => {
+    // res.json({ fuck: 'fuck' })
+
+    return new Business()
+        .fetchAll()
+        .then(business => {
+            return res.json(business);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        });
+});
 
 // app.post('/api/users', (req, res) => {
 //     const username = req.body.username;
