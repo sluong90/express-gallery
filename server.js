@@ -29,30 +29,6 @@ app.get('/', (req, res) => {
     res.render("homebase")
 });
 
-// app.get('/api/users', (req, res) => {
-//     // res.json({ fuck: 'fuck' })
-
-//     return new User().fetchAll()
-//         .then((users) => {
-//             return res.json(users);
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//             res.sendStatus(500);
-//         });
-// });
-
-// app.post('/api/users', (req, res) => {
-//     const username = req.body.username;
-//     return new User({ username }).save()
-//         .then((user) => {
-//             return res.json({ success: true });
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//             res.sendStatus(500);
-//         });
-// })
 
 // start server
 app.listen(PORT, () => {
