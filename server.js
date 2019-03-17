@@ -56,17 +56,30 @@ app.get('/businesses', (req, res) => {
         });
 });
 
-// app.post('/api/users', (req, res) => {
-//     const username = req.body.username;
-//     return new User({ username }).save()
-//         .then((user) => {
-//             return res.json({ success: true });
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//             res.sendStatus(500);
-//         });
-// })
+app.get | ("/:id"), function (req, res) {
+    const businessId = req.body.id;
+    return new Business()
+        .where({ id: businessId })
+        .fetch()
+        .then(business => {
+            return res.json(artwork);
+        });
+};
+
+app.post('/businesses', (req, res) => {
+    // const business = req.body;
+    const author = req.body.author;
+    // const url = req.body.url;
+    // const description = req.body.description;
+    return new Business({ author }).save()
+        .then((business) => {
+            return res.json({ success: true });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        });
+})
 
 // start server
 app.listen(PORT, () => {
