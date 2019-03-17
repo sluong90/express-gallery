@@ -4,7 +4,7 @@ exports.seed = function (knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('business').insert([
-        {
+        { 
           author: 'author1',
           url: 'url1',
           description: 'descript1'

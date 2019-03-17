@@ -32,6 +32,7 @@ app.get('/', (req, res) => {
     res.render("homebase")
 });
 
+<<<<<<< HEAD
 
 // router.get('/', function (req, res) {
 //     knex.select('*').from('business')
@@ -67,6 +68,8 @@ app.get('/businesses', (req, res) => {
 //             res.sendStatus(500);
 //         });
 // })
+=======
+>>>>>>> cdc8385fb40357215bfdebf84d51337739df9adc
 
 // start server
 app.listen(PORT, () => {
