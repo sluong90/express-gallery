@@ -22,7 +22,7 @@ app.engine('hbs', hbs({
     extname: '.hbs'
 }))
 app.set('view engine', 'hbs');
-app.use('/businesses', Business)
+// app.use('/businesses', Business)
 
 // routes
 app.get('/', (req, res) => {
