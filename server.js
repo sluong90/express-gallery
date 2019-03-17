@@ -32,7 +32,6 @@ app.get('/', (req, res) => {
     res.render("homebase")
 });
 
-<<<<<<< HEAD
 
 // router.get('/', function (req, res) {
 //     knex.select('*').from('business')
@@ -57,6 +56,7 @@ app.get('/businesses', (req, res) => {
         });
 });
 
+
 // app.post('/api/users', (req, res) => {
 //     const username = req.body.username;
 //     return new User({ username }).save()
@@ -68,8 +68,32 @@ app.get('/businesses', (req, res) => {
 //             res.sendStatus(500);
 //         });
 // })
-=======
->>>>>>> cdc8385fb40357215bfdebf84d51337739df9adc
+
+app.get | ("/:id"), function (req, res) {
+    const businessId = req.body.id;
+    return new Business()
+        .where({ id: businessId })
+        .fetch()
+        .then(business => {
+            return res.json(artwork);
+        });
+};
+
+app.post('/businesses', (req, res) => {
+    // const business = req.body;
+    const author = req.body.author;
+    // const url = req.body.url;
+    // const description = req.body.description;
+    return new Business({ author }).save()
+        .then((business) => {
+            return res.json({ success: true });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        });
+})
+
 
 // start server
 app.listen(PORT, () => {
