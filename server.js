@@ -57,6 +57,24 @@ app.post('/businesses', (req, res) => {
         });
 })
 
+app.get('/businesses/:id', (req, res) => {
+    const id = Number(req.params.id);
+    return new Business()
+    .where({id})
+    .fetchAll()
+    .then(result => {
+        return res.render('templates/biz', { business: result.toJSON() });
+    })
+    .catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+    })
+})
+
+app.get('businesses/new', (req,res) => {
+    res.render('templates/new');
+})
+
 // start server
 app.listen(PORT, () => {
     console.log(`Server stated on port: ${PORT}`);
