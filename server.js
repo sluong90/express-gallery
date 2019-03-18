@@ -4,8 +4,7 @@ const Business = require('./database/models/Business');
 const hbs = require('express-handlebars');
 
 
-// const router = express.Router();
-// const knex = require('../database');
+
 // data vars
 const PORT = process.env.PORT;
 const SESSION_SECRET = process.env.SESSION_SECRET;
@@ -32,24 +31,13 @@ app.get('/', (req, res) => {
     res.render("homebase")
 });
 
-<<<<<<< HEAD
-
-// router.get('/', function (req, res) {
-//     knex.select('*').from('business')
-//         .then((business) => {
-//             console.log(business);
-//             res.render('business', { business })
-//         });
-
-// })
 
 app.get('/businesses', (req, res) => {
-    // res.json({ fuck: 'fuck' })
 
     return new Business()
         .fetchAll()
         .then(business => {
-            return res.json(business);
+            return res.render('templates/index', { business: business.toJSON() });
         })
         .catch((err) => {
             console.log(err);
@@ -57,19 +45,17 @@ app.get('/businesses', (req, res) => {
         });
 });
 
-// app.post('/api/users', (req, res) => {
-//     const username = req.body.username;
-//     return new User({ username }).save()
-//         .then((user) => {
-//             return res.json({ success: true });
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//             res.sendStatus(500);
-//         });
-// })
-=======
->>>>>>> cdc8385fb40357215bfdebf84d51337739df9adc
+app.post('/businesses', (req, res) => {
+    const {author, url, description} = req.body;
+    return new Business({ author, url, description }).save()
+        .then((business) => {
+            return res.redirect('/businesses');
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        });
+})
 
 // start server
 app.listen(PORT, () => {
