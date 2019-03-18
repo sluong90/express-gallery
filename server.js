@@ -18,7 +18,7 @@ if (!PORT || !SESSION_SECRET || !REDIS_HOSTNAME) { return process.exit(1); }
 
 // setup server middleware
 const app = express();
-app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(methodOverride('_method'))
 app.engine('hbs', hbs({
@@ -54,7 +54,8 @@ app.get('/businesses/new', (req,res) => {
 app.post('/businesses', (req, res) => {
     const {author, url, description} = req.body;
     return new Business({ author, url, description }).save()
-        .then(() => {
+        .then((result) => {
+            // return res.json(result);
             return res.redirect('/businesses');
         })
         .catch((err) => {
