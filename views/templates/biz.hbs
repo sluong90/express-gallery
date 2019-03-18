@@ -5,7 +5,10 @@
 <h2>Description: {{description}}</h2>
 
 </div>
-<a href="/business/{{id}}/edit"><button type="button">Edit Post</button></a>
+<a href="/businesses/{{id}}/edit"><button type="button">Edit Post</button></a>
 
+<form action="/businesses/{{id}}?_method=DELETE" method="post">
+  <button type="submit">Delete Post</button>
+</form>
 {{/business}}
 
