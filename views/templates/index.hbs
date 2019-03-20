@@ -1,0 +1,17 @@
+<h1>THIS IS KAKAAKO</h1>
+
+<a href="/businesses/new"><button type="button">Create A New Post</button></a>
+
+<div id="biz"></div>
+{{#each business}}
+<br>
+<a href="/businesses/{{id}}">
+<img src="{{url}}"></a>
+
+<h2 id="author">
+    Posted By: {{author}}
+</h2>
+<p>{{description}}</p>
+<br></div>
+
+{{/each}}
