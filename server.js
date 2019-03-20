@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const Business = require('./database/models/Business');
 const hbs = require('express-handlebars');
 const methodOverride = require('method-override');
-
+const app = express();
 ``
 
 // data vars
@@ -17,7 +17,7 @@ if (!REDIS_HOSTNAME) { console.log('No Redis Hostname Found'); }
 if (!PORT || !SESSION_SECRET || !REDIS_HOSTNAME) { return process.exit(1); }
 
 // setup server middleware
-const app = express();
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(methodOverride('_method'))
@@ -30,7 +30,7 @@ app.set('view engine', 'hbs');
 
 // routes
 app.get('/', (req, res) => {
-    res.render("homebase")
+    res.render("homebase", { style: 'home.css' })
 });
 
 
@@ -39,7 +39,7 @@ app.get('/businesses', (req, res) => {
     return new Business()
         .fetchAll()
         .then(business => {
-            return res.render('templates/index', { business: business.toJSON() });
+            return res.render('templates/index', { business: business.toJSON(), style: 'index.css'});
         })
         .catch((err) => {
             console.log(err);
@@ -48,12 +48,13 @@ app.get('/businesses', (req, res) => {
 });
 
 app.get('/businesses/new', (req, res) => {
-    res.render('templates/new');
+    res.render('templates/new', { style: 'new.css' });
 })
 
 app.post('/businesses', (req, res) => {
     const { author, url, description } = req.body;
-    return new Business({ author, url, description }).save()
+    return new Business({ author, url, description })
+        .save()
         .then((result) => {
             // return res.json(result);
             return res.redirect('/businesses');
@@ -70,7 +71,7 @@ app.get('/businesses/:id', (req, res) => {
         .where({ id })
         .fetchAll()
         .then(result => {
-            return res.render('templates/biz', { business: result.toJSON() });
+            return res.render('templates/biz', { business: result.toJSON(), style: 'biz.css' });
         })
         .catch((err) => {
             console.log(err);
@@ -85,7 +86,7 @@ app.get('/businesses/:id/edit', (req, res) => {
         .fetch()
         .then(selectedBusiness => {
             console.log(selectedBusiness.toJSON(), "bus obj")
-            return res.render('templates/edit', selectedBusiness.toJSON());
+            return res.render('templates/edit', { style: 'edit.css'});
         })
         .catch((err) => {
             console.log(err);
