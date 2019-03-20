@@ -1,19 +1,18 @@
+<form id="updatePost" action="/businesses/{{id}}/edit?_method=PUT" method="POST"
+    enctype="application/x-www-form-urlencoded">
 
-<form id="updatePost" action="/businesses/{{id}}?_method=PUT" method="POST" enctype="application/x-www-form-urlencoded">
     <div>
         <label for="name">Updated By: </label>
-        <input type="text" id="author" name="author" placeholder="{{author}}"></input>
+        <input type="text" id="author" name="author" value="{{author}}"></input>
     </div>
     <div>
         <label for="url">Photo: </label>
-        <input type="text" id="url" name="url" placeholder="{{url}}"></input>
+        <input type="text" id="url" name="url" value="{{url}}"></input>
     </div>
     <div>
         <label for="description">Description: </label>
-        <input type="text" id="description" name="description" placeholder="{{description}}"></input>
+        <input type="text" id="description" name="description" value="{{description}}"></input>
     </div>
-    
-<input type="submit" value="UPDATE POST"></input>
-</form> 
 
-
+    <input type="submit" value="UPDATE POST"></input>
+</form>

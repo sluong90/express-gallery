@@ -4,7 +4,7 @@ const Business = require('./database/models/Business');
 const hbs = require('express-handlebars');
 const methodOverride = require('method-override');
 
-
+``
 
 // data vars
 const PORT = process.env.PORT;
@@ -47,12 +47,12 @@ app.get('/businesses', (req, res) => {
         });
 });
 
-app.get('/businesses/new', (req,res) => {
+app.get('/businesses/new', (req, res) => {
     res.render('templates/new');
 })
 
 app.post('/businesses', (req, res) => {
-    const {author, url, description} = req.body;
+    const { author, url, description } = req.body;
     return new Business({ author, url, description }).save()
         .then((result) => {
             // return res.json(result);
@@ -67,43 +67,66 @@ app.post('/businesses', (req, res) => {
 app.get('/businesses/:id', (req, res) => {
     const id = Number(req.params.id);
     return new Business()
-    .where({id})
-    .fetchAll()
-    .then(result => {
-        return res.render('templates/biz', { business: result.toJSON() });
-    })
-    .catch((err) => {
-        console.log(err);
-        res.sendStatus(500);
-    })
+        .where({ id })
+        .fetchAll()
+        .then(result => {
+            return res.render('templates/biz', { business: result.toJSON() });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        })
 })
 
 
 app.get('/businesses/:id/edit', (req, res) => {
     const id = Number(req.params.id);
-    return new Business()
-    .where({id})
-    .fetchAll()
-    .then(update => {
-        return res.render('templates/edit', update.toJSON());
-    })
-    .catch((err) => {
-        console.log(err);
-        res.sendStatus(500);
-    })
+    return new Business({ id })
+        .fetch()
+        .then(selectedBusiness => {
+            console.log(selectedBusiness.toJSON(), "bus obj")
+            return res.render('templates/edit', selectedBusiness.toJSON());
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        })
 })
 
-app.delete('/businesses/:id', (req,res) => {
+app.delete('/businesses/:id', (req, res) => {
     return new Business()
-    .where({id: req.params.id})
-    .destroy()
-    .then(result => {
-        return res.redirect('/businesses');
-    })
-    .catch((err) => {
-        console.log(err);
-        res.sendStatus(500);
-    })
+        .where({ id: req.params.id })
+        .destroy()
+        .then(result => {
+            return res.redirect('/businesses');
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        })
+})
+
+app.put('/businesses/:id/edit', (req, res) => {
+    const id = Number(req.params.id);
+    const { author, url, description } = req.body;
+    return new Business({ id })
+        .fetch()
+        .then(selectedBusiness => {
+            console.log(selectedBusiness.toJSON(), "bus obj updated")
+            const updatedBusiness = { author, url, description };
+            return selectedBusiness.save(updatedBusiness)
+                .then(() => {
+                    return res.render('templates/edit', updatedBusiness);
+                })
+                .catch((err) => {
+                    console.log(err, "save error");
+                    res.sendStatus(500);
+                })
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        })
 })
 
 // start server
