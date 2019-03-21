@@ -52,8 +52,8 @@ app.get('/businesses/new', (req, res) => {
 })
 
 app.post('/businesses', (req, res) => {
-    const { author, url, description } = req.body;
-    return new Business({ author, url, description })
+    const { name, author, url, description } = req.body;
+    return new Business({ name, author, url, description })
         .save()
         .then((result) => {
             // return res.json(result);
@@ -111,12 +111,12 @@ app.delete('/businesses/:id', (req, res) => {
 
 app.put('/businesses/:id/edit', (req, res) => {
     const id = Number(req.params.id);
-    const { author, url, description } = req.body;
+    const { name, author, url, description } = req.body;
     return new Business({ id })
         .fetch()
         .then(selectedBusiness => {
             console.log(selectedBusiness.toJSON(), "bus obj updated")
-            const updatedBusiness = { author, url, description };
+            const updatedBusiness = { name, author, url, description };
             return selectedBusiness.save(updatedBusiness)
                 .then(() => {
                     return res.render('templates/edit', updatedBusiness);
