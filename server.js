@@ -86,7 +86,7 @@ app.get('/businesses/:id/edit', (req, res) => {
         .fetch()
         .then(selectedBusiness => {
             console.log(selectedBusiness.toJSON(), "bus obj")
-            return res.render('templates/edit', { style: 'edit.css'});
+            return res.render('templates/edit', selectedBusiness.toJSON());
         })
         .catch((err) => {
             console.log(err);
