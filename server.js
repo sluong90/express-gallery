@@ -39,7 +39,7 @@ app.get('/businesses', (req, res) => {
     return new Business()
         .fetchAll()
         .then(business => {
-            return res.render('templates/index', { business: business.toJSON(), style: 'index.css'});
+            return res.render('templates/index', { business: business.toJSON(), style: 'index.css' });
         })
         .catch((err) => {
             console.log(err);
@@ -86,7 +86,9 @@ app.get('/businesses/:id/edit', (req, res) => {
         .fetch()
         .then(selectedBusiness => {
             console.log(selectedBusiness.toJSON(), "bus obj")
-            return res.render('templates/edit', { style: 'edit.css'});
+            return res.render('templates/edit', selectedBusiness.toJSON());
+
+            // { style: 'edit.css' });
         })
         .catch((err) => {
             console.log(err);
