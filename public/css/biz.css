@@ -1,3 +1,37 @@
 body {
-    background: palevioletred;
+    text-align: center;
 }
+
+#name {
+    font-family: 'Abel';
+    font-size: 70px;
+    text-shadow: 3px 5px rgb(236, 139, 28)
+}
+
+#img {
+    width: 40%;
+    height: auto;
+    border-radius: 30px;
+}
+
+#author {
+    font-family: 'Raleway';
+}
+
+#descript {
+    font-family: 'Poppins';
+}
+
+button {
+    background-color: white; 
+    color: black; 
+    border: 2px solid rgb(238, 168, 38);
+    padding: 10px;
+    margin-left: 25px;
+    font-size: 15px;
+  }
+  
+button:hover {
+    background-color: rgb(238, 168, 38);
+    color: white;
+  }

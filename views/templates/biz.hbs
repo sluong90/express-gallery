@@ -1,15 +1,18 @@
 <link rel="stylesheet" href="/css/{{style}}">
-
+<link
+    href="https://fonts.googleapis.com/css?family=Abel|Alegreya+Sans+SC|Anton|Arima+Madurai|Bevan|Bree+Serif|Courgette|Dosis|Julius+Sans+One|Magra|Poppins|Puritan|Raleway|Sniglet|Special+Elite"
+    rel="stylesheet">
 {{#business}}
 <div class="bizItem">
   <h1 id="name">{{name}}</h1>
   <img id="img" src="{{url}}"></a>
   <h3 id="author">Posted By: {{author}}</h3><br>
-  <h2 id="descript">Description: {{description}}</h2>
+  <h2 id="descript">{{description}}</h2>
 
 </div>
 <a href="/businesses/{{id}}/edit"><button type="button">Edit Post</button></a>
-
+<br>
+<br>
 <form action="/businesses/{{id}}?_method=DELETE" method="post">
   <button type="submit">Delete Post</button>
 </form>

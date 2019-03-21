@@ -1,14 +1,17 @@
 <link rel="stylesheet" href="/css/{{style}}">
+<link
+    href="https://fonts.googleapis.com/css?family=Abel|Alegreya+Sans+SC|Anton|Arima+Madurai|Bevan|Bree+Serif|Courgette|Dosis|Julius+Sans+One|Magra|Poppins|Puritan|Raleway|Sniglet|Special+Elite"
+    rel="stylesheet">
 
-<h1>Create A New Post</h1>
+<h1 id="create">Create A New Post</h1>
 <form id='addPost' action="/businesses" method="post" enctype="application/x-www-form-urlencoded">
   Business Name:
-  <input type="text" name="name" value="name">
+  <input type="text" name="name" placeholder="Enter business name"><br>
   Author:
-  <input type="text" name="author" value="author">
-  URL:
-  <input type="text" name="url" value="url">
+  <input type="text" name="author" placeholder="Enter author's name"><br>
+  Photo:
+  <input type="text" name="url" placeholder="Enter URL of the photo"><br>
   Description:
-  <input type="text" name="description" value="description">
-</form>
+  <textarea name="description" placeholder="description"></textarea><br>
+</form><br>
 <button type="submit" form='addPost' value="Submit">Submit</button>

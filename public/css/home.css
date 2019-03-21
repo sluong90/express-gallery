@@ -6,6 +6,11 @@ body {
 
 #title {
      font-size: 70px;
+     text-shadow: 5px 5px 10px white;
+}
+
+#kakaakoImg {
+    border-radius: 15px;
 }
 
 #welcomeText {
@@ -23,3 +28,17 @@ body {
     text-transform: uppercase;
     padding: -100px;
 }
+
+a:link, a:visited {
+    background-color: grey;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+  }
+  
+  a:hover, a:active {
+    background-color: rgb(102, 187, 240);
+  }

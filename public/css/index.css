@@ -1,11 +1,12 @@
 body {
-    background: wheat;
+    background: rgb(245, 243, 243);
     font-family: 'Puritan', sans-serif;
 }
 
 #exp {
     font-size: 70px;
-    margin-left: 40px;
+    margin-left: 20px;
+    text-shadow: 5px 5px rgb(218, 123, 123);
 }
 
 #cruise {
@@ -25,16 +26,25 @@ body {
 #newFood {
     font-size: 40px;
     margin-left: 55px;
+    text-shadow: 2px 5px 3px rgb(184, 178, 178);
 }
 
 .foodPics {
     max-width: 20%;
     margin-left: 55px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.foodPics:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  opacity: 0.5;
 }
 
 #author {
     font-size: 16px;
-    margin-left: 55px;
+    margin-left: 100px;
 }
 
 .col1 {
@@ -50,3 +60,17 @@ body {
   margin-right: -500px;
   margin-top: 20px;
 }
+
+button {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+    padding: 10px;
+    margin-left: 260px;
+    font-size: 15px;
+  }
+  
+button:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
