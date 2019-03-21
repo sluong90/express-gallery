@@ -1,3 +1,25 @@
 body {
-    background: cornflowerblue;
+    background: white;
+    text-align: center;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+#title {
+     font-size: 70px;
+}
+
+#welcomeText {
+    font-size: 45px;
+     margin-top: 15px;
+}
+
+#hnl {
+    font-size: 35px;
+     margin-top: -35px;
+}
+
+#explore {
+    font-size: 35px;
+    text-transform: uppercase;
+    padding: -100px;
 }
