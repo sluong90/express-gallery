@@ -2,9 +2,9 @@
 
 {{#business}}
 <div class="bizItem">
-<img src="{{url}}"></a>
-<h3>Posted By: {{author}}</h3><br>
-<h2>Description: {{description}}</h2>
+  <img id="img" src="{{url}}"></a>
+  <h3 id="author">Posted By: {{author}}</h3><br>
+  <h2 id="descript">Description: {{description}}</h2>
 
 </div>
 <a href="/businesses/{{id}}/edit"><button type="button">Edit Post</button></a>
@@ -13,4 +13,3 @@
   <button type="submit">Delete Post</button>
 </form>
 {{/business}}
-

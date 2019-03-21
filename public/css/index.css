@@ -1,3 +1,52 @@
 body {
-    background: palegoldenrod;
+    background: wheat;
+    font-family: 'Puritan', sans-serif;
+}
+
+#exp {
+    font-size: 70px;
+    margin-left: 40px;
+}
+
+#cruise {
+    max-width: 95%;
+    display: inline-block;
+}
+
+.des {
+    width: 700px;
+    height: 100px;
+}
+
+.daFood {
+    margin-top: -38px;
+}
+
+#newFood {
+    font-size: 40px;
+    margin-left: 55px;
+}
+
+.foodPics {
+    max-width: 20%;
+    margin-left: 55px;
+}
+
+#author {
+    font-size: 16px;
+    margin-left: 55px;
+}
+
+.col1 {
+  float: left;
+  width: 50%;
+  padding-left: 100px;
+  height: 10px;
+}
+
+.col2 {
+    float: right;
+  width: 70%;
+  margin-right: -500px;
+  margin-top: 20px;
 }
