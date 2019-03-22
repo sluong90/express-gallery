@@ -4,7 +4,7 @@ const Business = require('./database/models/Business');
 const hbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const app = express();
-``
+const Users = require('.db/models/Users');
 
 // data vars
 const PORT = process.env.PORT;
