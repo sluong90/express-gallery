@@ -5,6 +5,10 @@ const hbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const app = express();
 const Users = require('.db/models/Users');
+const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
+const passport = require('passport');
+const AuthRoutes = require('./routes/auth');
 
 // data vars
 const PORT = process.env.PORT;
