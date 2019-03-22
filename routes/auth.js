@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const Users = require('./database/models/Users');
+const Users = require('../database/models/Users');
 const passport = require('passport');
-const LocalStrategy = require('passsport-local');
+const LocalStrategy = require('passport-local');
 const bcrypt = require('bcrypt');
 
 
