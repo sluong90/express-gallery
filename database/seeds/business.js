@@ -1,8 +1,19 @@
 exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
-  return knex('business').del()
+
+  return knex('user').del()
+  .then(function(){
+    return knex('user').insert([
+      {email: 'tyger@lmfao.com', password: 'tyger1'},
+      {email: 'lyon@lmfao.com', password: 'lyon2'},
+      {email: 'cheetyh@lmfao.com', password: 'cheetyh3'}
+    ]);
+  })
+  
     .then(function () {
       // Inserts seed entries
+      return knex('business').del()
+      .then(function(){
       return knex('business').insert([
         {
           name: 'EARL Kakaako',
@@ -24,4 +35,5 @@ exports.seed = function (knex, Promise) {
         }
       ]);
     });
-};
+})
+}
