@@ -24,6 +24,16 @@ if (!PORT || !SESSION_SECRET || !REDIS_HOSTNAME) { return process.exit(1); }
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
+app.use(session({
+    store: new RedisStore(),
+    secret: 'YOU HAVE THE POWER!',
+    resave: false,
+    saveUninitialized: false
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(methodOverride('_method'))
 app.engine('hbs', hbs({
     defaultLayout: 'home',
@@ -32,11 +42,28 @@ app.engine('hbs', hbs({
 app.set('view engine', 'hbs');
 // app.use('/businesses', Business)
 
-// routes
+// routes for authentication
+app.get('/', (req, res) => {
+    res.send('sanity check')
+})
+app.use('/businesses', AuthRoutes);
+
+//get all users
+app.get('/businesses/users', (req, res) => {
+    Users
+        .fetchAll()
+        .then(users => {
+            res.json(users.serialize());
+        })
+        .catch(err => {
+            res.json(err);
+        })
+})
+
+//original method requests
 app.get('/', (req, res) => {
     res.render("homebase", { style: 'home.css' })
 });
-
 
 app.get('/businesses', (req, res) => {
 
