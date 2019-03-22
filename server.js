@@ -33,7 +33,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use('/businesses', AuthRoutes);
 app.use(methodOverride('_method'))
 app.engine('hbs', hbs({
     defaultLayout: 'home',
@@ -42,11 +42,12 @@ app.engine('hbs', hbs({
 app.set('view engine', 'hbs');
 // app.use('/businesses', Business)
 
-// routes for authentication
-app.get('/', (req, res) => {
-    res.send('sanity check')
-})
-app.use('/businesses', AuthRoutes);
+// ROUTES FOR AUTHENTICATION
+// app.get('/', (req, res) => {
+//     res.send('sanity check')
+// })
+
+
 
 //get all users
 app.get('/businesses/users', (req, res) => {
@@ -59,6 +60,21 @@ app.get('/businesses/users', (req, res) => {
             res.json(err);
         })
 })
+
+app.get('/businesses/users/:user_id/business', (req, res) => {
+    const { user_id } = req.params;
+    Business
+    .where({user_id})
+    .fetchAll()
+    .then( business => {
+        res.json(business.serialize())
+    })
+    .catch( err => {
+        res.json(err);
+    })
+})
+
+
 
 //original method requests
 app.get('/', (req, res) => {
