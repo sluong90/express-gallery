@@ -42,24 +42,45 @@ app.engine('hbs', hbs({
 app.set('view engine', 'hbs');
 // app.use('/businesses', Business)
 
-// routes for authentication
-app.get('/', (req, res) => {
-    res.send('sanity check')
-})
-app.use('/businesses', AuthRoutes);
+// ROUTES FOR AUTHENTICATION
+// app.get('/', (req, res) => {
+//     res.send('sanity check')
+// })
+
+
 
 //get all users
-app.get('/businesses/users', (req, res) => {
-    console.log("get all users werkin")
+
+
+app.get('/users', (req, res) => {
+    // console.log('hit')
     Users
         .fetchAll()
         .then(users => {
             res.json(users.serialize());
         })
         .catch(err => {
-            res.json(err);
+            console.log(err.message)
         })
 })
+
+app.get('/users/:id/business', (req, res) => {
+    const { id } = req.params;
+    console.log('hit', id)
+    return Business
+        .where({ user_id: id })
+        .fetchAll()
+        .then(business => {
+            res.json(business)
+        })
+        .catch(err => {
+            res.json(err);
+
+        })
+})
+
+
+
 
 //original method requests
 app.get('/', (req, res) => {
@@ -84,8 +105,8 @@ app.get('/businesses/new', (req, res) => {
 })
 
 app.post('/businesses', (req, res) => {
-    const { name, author, url, description } = req.body;
-    return new Business({ name, author, url, description })
+    const { user_id, name, author, url, description } = req.body;
+    return new Business({ user_id, name, author, url, description })
         .save()
         .then((result) => {
             // return res.json(result);
@@ -164,6 +185,7 @@ app.put('/businesses/:id/edit', (req, res) => {
         })
 })
 
+app.use('/businesses', AuthRoutes);
 // start server
 app.listen(PORT, () => {
     console.log(`Server stated on port: ${PORT}`);
