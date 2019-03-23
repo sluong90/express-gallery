@@ -50,6 +50,7 @@ app.use('/businesses', AuthRoutes);
 
 //get all users
 app.get('/businesses/users', (req, res) => {
+    console.log("get all users werkin")
     Users
         .fetchAll()
         .then(users => {

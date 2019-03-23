@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "bcrypt": "^3.0.5",
+    "bcryptjs": "^2.4.3",
     "bookshelf": "^0.14.2",
     "connect-redis": "^3.4.1",
     "dotenv": "^7.0.0",
