@@ -7,12 +7,12 @@
 const bookshelf = require('../bookshelf');
 
 class Users extends bookshelf.Model {
-  get tableName() { return 'users'; }
-  get hasTimestamps() { return true; }
+    get tableName() { return 'users'; }
+    get hasTimestamps() { return true; }
 
-  users() {
-    return this.hasMany('Business', 'user_id');
-  }
+    users() {
+        return this.hasMany('Business', 'user_id');
+    }
 }
 
 

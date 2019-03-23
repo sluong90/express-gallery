@@ -50,8 +50,6 @@ app.set('view engine', 'hbs');
 
 
 //get all users
-
-
 app.get('/users', (req, res) => {
     // console.log('hit')
     Users
@@ -64,6 +62,7 @@ app.get('/users', (req, res) => {
         })
 })
 
+//get all business posts by user_id
 app.get('/users/:id/business', (req, res) => {
     const { id } = req.params;
     console.log('hit', id)
@@ -79,8 +78,24 @@ app.get('/users/:id/business', (req, res) => {
         })
 })
 
-
-
+//create business by user_id
+app.post('/users/:user_id/business/new', (req, res) => {
+    const { user_id } = req.params;
+    const payload = {
+        name: req.body.name
+    }
+    console.log(payload, "payload")
+    Business
+        .forge(payload)
+        .save()
+        .then(result => {
+            res.json(result)
+        })
+        .catch(err => {
+            console.log('error', err)
+            res.json(err);
+        })
+})
 
 //original method requests
 app.get('/', (req, res) => {

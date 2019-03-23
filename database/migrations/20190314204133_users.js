@@ -7,10 +7,10 @@ exports.up = function (knex, Promise) {
     })
         .createTable('business', table => {
             table.increments()
-            table.string('name').notNullable();
-            table.string('author').notNullable();
-            table.text('description').notNullable();
-            table.text('url').notNullable();
+            table.string('name');
+            table.string('author');
+            table.text('description');
+            table.text('url');
             table.integer('user_id').references('users.id')
             table.timestamps(true, true);
         })
