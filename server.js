@@ -33,7 +33,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use('/businesses', AuthRoutes);
+
 app.use(methodOverride('_method'))
 app.engine('hbs', hbs({
     defaultLayout: 'home',
@@ -50,29 +50,35 @@ app.set('view engine', 'hbs');
 
 
 //get all users
-app.get('/businesses/users', (req, res) => {
+
+
+app.get('/users', (req, res) => {
+    // console.log('hit')
     Users
-        .fetchAll()
-        .then(users => {
-            res.json(users.serialize());
-        })
-        .catch(err => {
-            res.json(err);
-        })
+    .fetchAll()
+    .then(users => {
+        res.json(users.serialize());
+    })
+    .catch(err => {
+        console.log(err.message)
+    })
 })
 
-app.get('/businesses/users/:user_id/business', (req, res) => {
-    const { user_id } = req.params;
-    Business
-    .where({user_id})
+app.get('/users/:id/business', (req, res) => {
+    const { id } = req.params;
+    console.log('hit', id)
+   return Business
+    .where({user_id: id})
     .fetchAll()
     .then( business => {
-        res.json(business.serialize())
+        res.json(business)
     })
     .catch( err => {
         res.json(err);
+
     })
 })
+
 
 
 
@@ -99,8 +105,8 @@ app.get('/businesses/new', (req, res) => {
 })
 
 app.post('/businesses', (req, res) => {
-    const { name, author, url, description } = req.body;
-    return new Business({ name, author, url, description })
+    const { user_id, name, author, url, description } = req.body;
+    return new Business({ user_id, name, author, url, description })
         .save()
         .then((result) => {
             // return res.json(result);
@@ -179,6 +185,7 @@ app.put('/businesses/:id/edit', (req, res) => {
         })
 })
 
+app.use('/businesses', AuthRoutes);
 // start server
 app.listen(PORT, () => {
     console.log(`Server stated on port: ${PORT}`);
