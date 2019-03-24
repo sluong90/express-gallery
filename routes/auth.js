@@ -64,9 +64,17 @@ router.post('/auth/register', (req, res) => {
             console.log('salt', salt)
             return bcrypt.hash(password, salt)
         })
+        .then(hash => {
+            console.log('hash', hash);
+            return Users.forge({
+                email,
+                password: hash
+            }).save()
+        })
         .then(user => {
             user = user.toJSON()
-            res.json(user)
+            res.redirect('/businesses')
+            // console.log('user', user)
             //res.sendStatus(200)
             //res.redirect('/api/auth/secret')
         })

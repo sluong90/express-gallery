@@ -15,6 +15,19 @@
 <body>
     <div class="homepage">
         <h1 id="title">KAKAAKO VIBES</h1>
+        <div class="login">
+            <form id='newUser' action="/businesses" method="post" enctype="application/x-www-form-urlencoded">
+                EMAIL:
+                <input type="text" name="email" placeholder="email"><br>
+                PASSWORD:
+                <input type="text" name="password" placeholder="password"><br>
+            </form><br>
+            <button type="logIn" form='newUser' value="logIn">LOG-IN</button>
+        </div>
+        {{!-- <div class="createNew">
+            <form id='createNew' action="/businesses" method="post" enctype="application/x-www-form-urlencoded">
+            <button type="createNew" form='createNew' value="createNew">Create New Account</button>
+        </div> --}}
         <img id="kakaakoImg"
             src="https://listingsprod.blob.core.windows.net/ourlistings-usa/be2760f2-0cb8-427e-8349-547707a6977c/b5539196-fc89-42a9-8f9e-2d3f4fd11883-725-438"
             alt="Kakaako">
