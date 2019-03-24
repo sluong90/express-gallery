@@ -35,11 +35,6 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
         .then(user => {
             console.log('user in local strategy', user)
             user = user.toJSON();
-            // if (user.password === password, user.password){
-            //     done(null, user )
-            // } else {
-            //     done(null, false)
-            // }
             bcrypt.compare(password, user.password)
                 .then(res => {
                     if (res) {
@@ -55,6 +50,11 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 }))
 
 const SALT_ROUND = 12
+
+router.get('/auth/register', (req, res) => {
+    console.log('hit')
+    return res.render('templates/create')
+})
 
 router.post('/auth/register', (req, res) => {
     const { email, password } = req.body;
@@ -85,12 +85,17 @@ router.post('/auth/register', (req, res) => {
         })
 })
 
+router.get('/auth/login', (req, res) => {
+    console.log('hit')
+    return res.render('templates/login')
+})
+
 router.post('/auth/login', passport.authenticate('local', { failureRedirect: '/' }), (req, res) => {
     res.send('YAY YOU MADE IT IN!!!')
 })
 
 router.post('/auth/logout', (req, res) => {
-    res.send('YAY YOU HAVE FOUND THE SECRET YOU HAVE DA POWWWERRR MUAH HAHAHAHA!')
+    res.send('YAY YOU HAVE EXITED')
 })
 
 function isAuthenticated(req, res, done) {
