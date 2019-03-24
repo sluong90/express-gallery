@@ -90,7 +90,7 @@ router.get('/auth/login', (req, res) => {
     return res.render('templates/login')
 })
 
-router.post('/auth/login', passport.authenticate('local', { failureRedirect: '/' }), (req, res) => {
+router.post('/auth/login', passport.authenticate('local', { successRedirect: '/businesses', failureRedirect: '/404' }), (req, res) => {
     res.redirect('/businesses')
     console.log('YAY YOU MADE IT IN!!!')
 })
