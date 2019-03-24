@@ -52,7 +52,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 const SALT_ROUND = 12
 
 router.get('/auth/register', (req, res) => {
-    console.log('hit')
+    console.log('boom')
     return res.render('templates/create')
 })
 
@@ -91,11 +91,14 @@ router.get('/auth/login', (req, res) => {
 })
 
 router.post('/auth/login', passport.authenticate('local', { failureRedirect: '/' }), (req, res) => {
-    res.send('YAY YOU MADE IT IN!!!')
+    res.redirect('/businesses')
+    console.log('YAY YOU MADE IT IN!!!')
 })
 
 router.post('/auth/logout', (req, res) => {
-    res.send('YAY YOU HAVE EXITED')
+    req.logout()
+    res.redirect('/')
+    console.log('YAY YOU HAVE EXITED')
 })
 
 function isAuthenticated(req, res, done) {

@@ -47,7 +47,7 @@ app.set('view engine', 'hbs');
 //     res.send('sanity check')
 // })
 
-
+app.use('/businesses', AuthRoutes);
 
 //get all users
 app.get('/users', (req, res) => {
@@ -200,7 +200,7 @@ app.put('/businesses/:id/edit', (req, res) => {
         })
 })
 
-app.use('/businesses', AuthRoutes);
+
 // start server
 app.listen(PORT, () => {
     console.log(`Server stated on port: ${PORT}`);
