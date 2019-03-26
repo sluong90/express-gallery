@@ -119,7 +119,7 @@ app.get('/businesses/new', (req, res) => {
     res.render('templates/new', { style: 'new.css' });
 })
 
-app.post('/businesses', (req, res) => {
+app.post('/businesses', isAuthenticated, (req, res, next) => {
     const { user_id, name, author, url, description } = req.body;
     return new Business({ user_id, name, author, url, description })
         .save()
@@ -148,7 +148,7 @@ app.get('/businesses/:id', (req, res) => {
 })
 
 
-app.get('/businesses/:id/edit', (req, res) => {
+app.get('/businesses/:id/edit', isAuthenticated, (req, res, next) => {
     const id = Number(req.params.id);
     return new Business({ id })
         .fetch()
@@ -164,7 +164,7 @@ app.get('/businesses/:id/edit', (req, res) => {
         })
 })
 
-app.delete('/businesses/:id', (req, res) => {
+app.delete('/businesses/:id', isAuthenticated, (req, res, next) => {
     return new Business()
         .where({ id: req.params.id })
         .destroy()
@@ -199,6 +199,16 @@ app.put('/businesses/:id/edit', (req, res) => {
             res.sendStatus(500);
         })
 })
+
+function isAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        next()
+    } else {
+        res.send('ACCESS DENIED.')
+    }
+}
+
+
 
 
 // start server

@@ -102,13 +102,6 @@ router.post('/auth/logout', (req, res) => {
     console.log('YAY YOU HAVE EXITED')
 })
 
-function isAuthenticated(req, res, done) {
-    if (req.isAuthenticated()) {
-        done()
-    } else {
-        res.redirect('/')
-    }
-}
 
 
 module.exports = router;
