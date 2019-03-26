@@ -85,6 +85,7 @@ router.post('/auth/register', (req, res) => {
         })
 })
 
+
 router.get('/auth/login', (req, res) => {
     console.log('hit')
     return res.render('templates/login')

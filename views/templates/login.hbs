@@ -1,7 +1,31 @@
-<form id='login' action="/businesses/auth/login" method="post" enctype="application/x-www-form-urlencoded">
-    EMAIL:
-    <input type="text" name="email" placeholder="email"><br>
-    PASSWORD:
-    <input type="password" name="password" placeholder="password"><br>
-    <button type="login" form='login' value="login">LOG IN</button>
-</form><br>
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/css/login.css">
+<link
+    <href="https://fonts.googleapis.com/css?family=Abel|Alegreya+Sans+SC|Anton|Bree+Serif|Courgette|Dosis|Julius+Sans+One|Poppins|Raleway|Sniglet|Special+Elite"
+    rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LOGIN</title>
+</head>
+
+<body>
+    <div class="loginPg">
+        <form id='login' action="/businesses/auth/login" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="loginbox">
+                EMAIL:
+                <input type="text" name="email" placeholder="email"><br>
+                PASSWORD:
+                <input type="password" id="password" name="password" placeholder="password"><br>
+                <a id="loginbutton">
+                    <button id="loginbuttontext" type="login" form='login' value="login">LOG IN</button>
+                </a>
+            </div>
+        </form><br>
+    </div>
+</body>
+
+</html>
