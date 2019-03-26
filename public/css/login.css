@@ -1,0 +1,39 @@
+ html {
+       height: 100%;
+ }
+ 
+ body {
+      height: 100%;
+      margin: 0;
+      background-image: linear-gradient(#00B7FF, #FFFFC7);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      text-align: center;
+      font-family: 'Alegreya Sans SC', sans-serif;
+ }
+
+ button {
+    font-family: 'Alegreya Sans SC', sans-serif;
+     font-size: 20px;
+}
+
+ #login {
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: -100px;
+}
+
+.loginbox {
+      border:solid whitesmoke;
+      border-radius: 12px;
+}
+
+#password {
+      font-size: 20px;
+}
+
+input[type="text"]
+{
+    font-size:18px;
+}
+
