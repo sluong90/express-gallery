@@ -1,7 +1,34 @@
-<form id='createNew' action="/businesses/auth/register" method="post" enctype="application/x-www-form-urlencoded">
-    EMAIL:
-    <input type="text" value="james@sexy.com" name="email" placeholder="email"><br>
-    PASSWORD:
-    <input type="password" name="password" placeholder="password"><br>
-    <button type="createNew" form='createNew' value="createNew">Create New Account</button>
-</form><br>
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/css/create.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create New Account</title>
+</head>
+
+<body>
+    <div class="cretePg">
+        <form id='createNew' action="/businesses/auth/register" method="post"
+            enctype="application/x-www-form-urlencoded">
+            <div class="welcomeText">
+                <h2>New to the neighborhood? Please create your account first.</h2>
+            </div>
+            <div class="createBox">
+                EMAIL ADDRESS:
+                <input type="text" id="email" value="james@sexy.com" name="email" placeholder="email"><br>
+                PASSWORD:
+                <input type="password" id="password" name="password" placeholder="password"><br>
+                <button id="createAccountBtn" type="createNew" form='createNew' value="createNew">CREATE YOUR
+                    ACCOUNT</button>
+            </div>
+        </form><br>
+        <img id="alohaImg"
+            src="https://3.bp.blogspot.com/-jPUsRG2ItWc/WSUEjfJf-1I/AAAAAAAAl5A/gpfBb677qtotwIBER6_eNBvCDhgRvn74ACLcB/s1600/kakaako.jpg"
+            alt="Aloha">
+    </div>
+</body>
+
+</html>
