@@ -187,7 +187,8 @@ app.put('/businesses/:id/edit', (req, res) => {
             const updatedBusiness = { name, author, url, description };
             return selectedBusiness.save(updatedBusiness)
                 .then(() => {
-                    return res.render('templates/edit', updatedBusiness);
+                    return res.redirect('/businesses');
+                    // return res.render('templates/edit', updatedBusiness);
                 })
                 .catch((err) => {
                     console.log(err, "save error");

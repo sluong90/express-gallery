@@ -9,7 +9,7 @@ body {
      text-shadow: 5px 5px 10px white;
 }
 
-button {
+/* button {
     font-family: 'Alegreya Sans SC', sans-serif;
      font-size: 20px;
 }
@@ -18,16 +18,41 @@ button {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
-}
+} */
+
+/* .userBtns{
+    padding: 20px 30px;
+} */
+
+#signin {
+    background-color: white; 
+    color: black; 
+    border: 2px solid rgb(152, 98, 177);
+    font-size: 20px;
+    padding: 10px;
+  }
+  
+#signin:hover {
+    background-color: rgb(152, 98, 177);
+    color: white;
+    font-weight: bold;
+  }
 
 
-#login {
-    font-size: 2px;
-}
+#create {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    font-size: 20px;
+    padding: 10px;
+  }
+  
+#create:hover {
+    background-color: #008CBA;
+    color: white;
+    font-weight: bold;
+  }
 
-#createNew {
-    font-size: 2px;
-}
 
 #kakaakoImg {
     border-radius: 15px;
@@ -49,7 +74,7 @@ button {
     padding: -100px;
 }
 
-a:link, a:visited {
+#explore a:link, a:visited {
     background-color: grey;
     color: white;
     padding: 14px 25px;
@@ -59,6 +84,7 @@ a:link, a:visited {
     border-radius: 10px;
   }
   
-  a:hover, a:active {
+#explore a:hover, a:active {
     background-color: rgb(102, 187, 240);
   }
+

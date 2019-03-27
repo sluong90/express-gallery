@@ -1,7 +1,10 @@
 <link rel="stylesheet" type="text/css" href="/css/{{style}}">
+<link
+    href="https://fonts.googleapis.com/css?family=Abel|Alegreya+Sans+SC|Anton|Arima+Madurai|Bevan|Bree+Serif|Courgette|Dosis|Julius+Sans+One|Magra|Poppins|Puritan|Raleway|Sniglet|Special+Elite"
+    rel="stylesheet">
 
 <link rel="stylesheet" href="/css/edit.css">
-
+<h1 id="edit">Edit Post</h1>
 <form id="updatePost" action="/businesses/{{id}}/edit?_method=PUT" method="POST"
     enctype="application/x-www-form-urlencoded">
 
@@ -21,6 +24,6 @@
         <label for="description">Description: </label>
         <input type="text" id="description" name="description" value="{{description}}"></input>
     </div>
-
-    <input type="submit" value="UPDATE POST"></input>
-</form>
+<button type="submit" form='updatePost' value="Submit">Update Post</button>
+</form><br>
+<a href="/businesses"><button id='back' type="submit">Back</button></a>

@@ -38,10 +38,11 @@ textarea {
     border: 2px solid rgb(140, 196, 241);
     padding: 15px;
     font-size: 15px;
-    width: 100px;
+    width: 200px;
   }
   
 button:hover {
     background-color: rgb(140, 196, 241);
     color: white;
+    font-weight: bold;
   }

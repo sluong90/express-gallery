@@ -73,14 +73,14 @@ router.post('/auth/register', (req, res) => {
         })
         .then(user => {
             user = user.toJSON()
-            res.redirect('/businesses')
+            res.redirect('/businesses/auth/login')
             // console.log('user', user)
             //res.sendStatus(200)
             //res.redirect('/api/auth/secret')
         })
         .catch(err => {
             console.log('err', err)
-            res.json(err)
+            res.send("You are already registered under this e-mail/username.")
             //res.sentStatus(500)
         })
 })
