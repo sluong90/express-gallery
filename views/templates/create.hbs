@@ -10,17 +10,18 @@
 </head>
 
 <body>
-    <div class="cretePg">
+    <div class="createPg">
         <form id='createNew' action="/businesses/auth/register" method="post"
             enctype="application/x-www-form-urlencoded">
-            <div class="welcomeText">
-                <h2>New to the neighborhood? Please create your account first.</h2>
-            </div>
             <div class="createBox">
+                <br><br><br>
+                <div id="welcomeText">
+                    New to the neighborhood? Please create your account first.</div>
+                <br><br>
                 EMAIL ADDRESS:
-                <input type="text" id="email" value="james@sexy.com" name="email" placeholder="email"><br>
-                PASSWORD:
-                <input type="password" id="password" name="password" placeholder="password"><br>
+                <input type="text" id="email" value="james@sexy.com" name="email" placeholder="email"><br><br><br>
+                PASSWORD:<br>
+                <input type="password" id="password" name="password" placeholder="password"><br><br><br><br>
                 <button id="createAccountBtn" type="createNew" form='createNew' value="createNew">CREATE YOUR
                     ACCOUNT</button>
             </div>

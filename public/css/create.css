@@ -1,15 +1,8 @@
- html {
+ /* html {
        height: 100%;
  }
- 
+  */
  body {
-      display: flex;
-      position: static;
-      height: 100%;
-      margin: 0;
-      background-image: linear-gradient(#00B7FF, #FFFFC7);
-      background-repeat: no-repeat;
-      background-attachment: fixed;
       text-align: center;
       font-family: 'Alegreya Sans SC', sans-serif;
  }
@@ -22,32 +15,41 @@
  }
 
  button {
-    font-family: 'Alegreya Sans SC', sans-serif;
-     font-size: 20px;
+    font-family: 'Special Elite' sans-serif;
+    font-size: 20px;
+    background-color: rgb(102, 187, 240);
+    box-shadow: 5px 5px 5px #888888;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 10px;
 }
 
-#createNew {
-    font-size: 20px;
-    text-transform: uppercase;
-    padding: -100px;
+.createPg {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
 }
 
 .createBox {
-      background-color: white;
-      margin-top: 150px;
-      margin-bottom: 10px;
-      margin-right: 400px;
-      margin-left: 280px;
-      border:1px solid whitesmoke;
-      border-radius: 12px;
+      display: inline-block;
+      border-radius: 10px 0px 0px 10px;
       width: 300px;
       height: 450px;
-      position: relative;
       padding: 10px;
+      font-weight: bold;
       box-shadow: 5px 10px 18px #888888;
 
       
 }
+
+#email {
+      font-size: 20px;
+}
+
 
 #password {
       font-size: 20px;
@@ -63,13 +65,9 @@ input[type="text"]
 }
 
 #alohaImg {
-     width: 500px;
-     height: 460px;
-      margin-top: 70px;
-      position: absolute;
-  top: 80px;
-  left: 600px;
-   border-radius: 8px;
-   padding: 10px;
+    height: 470px;
+      display: inline-block;
+      border-radius: 0px 10px 10px 0px;
+      text-align: center;
       box-shadow: 5px 10px 18px #888888;
 }

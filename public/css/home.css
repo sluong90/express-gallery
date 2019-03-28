@@ -6,7 +6,7 @@ body {
 
 #title {
      font-size: 70px;
-     text-shadow: 5px 5px 10px white;
+     text-shadow: 5px 5px rgb(102, 187, 240);
 }
 
 /* button {
@@ -25,37 +25,41 @@ body {
 } */
 
 #signin {
-    background-color: white; 
-    color: black; 
-    border: 2px solid rgb(152, 98, 177);
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(102, 187, 240);
+    border-radius: 10px;
     font-size: 20px;
     padding: 10px;
   }
   
 #signin:hover {
-    background-color: rgb(152, 98, 177);
+    background-color:rgb(102, 187, 240);
     color: white;
     font-weight: bold;
+    box-shadow: 5px 10px 18px #888888;
   }
 
 
 #create {
     background-color: white; 
     color: black; 
-    border: 2px solid #008CBA;
+    border: 2px solid rgb(102, 187, 240);
+    border-radius: 10px;
     font-size: 20px;
     padding: 10px;
   }
   
 #create:hover {
-    background-color: #008CBA;
+    background-color:rgb(102, 187, 240);
     color: white;
     font-weight: bold;
+    box-shadow: 5px 10px 18px #888888;
   }
 
 
 #kakaakoImg {
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 #welcomeText {
@@ -70,6 +74,7 @@ body {
 
 #explore {
     font-size: 35px;
+    font-weight: bold;
     text-transform: uppercase;
     padding: -100px;
 }
@@ -86,5 +91,6 @@ body {
   
 #explore a:hover, a:active {
     background-color: rgb(102, 187, 240);
+    box-shadow: 5px 10px 18px #888888;
   }
 

@@ -1,12 +1,12 @@
 body {
-    background: rgb(245, 243, 243);
+    background: white;
     font-family: 'Puritan', sans-serif;
 }
 
 #exp {
     font-size: 70px;
     margin-left: 20px;
-    text-shadow: 5px 5px rgb(218, 123, 123);
+    text-shadow: 5px 5px #f0a242;
 }
 
 #cruise {
@@ -62,22 +62,33 @@ body {
 }
 
 button {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #4CAF50;
-    padding: 10px;
-    font-size: 15px;
-    float: right;
-    
+  font-family: 'Puritan', sans-serif;
+ background-color:rgb(102, 187, 240);
+  margin-right: 40px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px; 
+  border: paleturquoise;
+  font-size: 30px;
+  padding: 10px;
   }
   
 button:hover {
-    background-color: #4CAF50;
+    background-color: rgb(102, 187, 240);
     color: white;
     font-weight: bold;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 5px 10px 18px #888888;
   }
 
-#post {
-  background-color: paleturquoise;
+/* #post {
+  background-color: #557ee6;
   margin-right: 40px;
-}
+  color: white;
+  font-weight: bold;
+  border-radius: 5px; 
+  border: paleturquoise;
+  font-size: 30px;
+  padding: 10px;
+} */

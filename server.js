@@ -120,8 +120,9 @@ app.get('/businesses/new', (req, res) => {
 })
 
 app.post('/businesses', isAuthenticated, (req, res, next) => {
-    const { user_id, name, author, url, description } = req.body;
-    return new Business({ user_id, name, author, url, description })
+    const { name, author, url, description } = req.body;
+    let userId = req.user.id
+    return new Business({ userId, name, author, url, description })
         .save()
         .then((result) => {
             // return res.json(result);
@@ -165,6 +166,8 @@ app.get('/businesses/:id/edit', isAuthenticated, (req, res, next) => {
 })
 
 app.delete('/businesses/:id', isAuthenticated, (req, res, next) => {
+    //get request to this id
+    // if user.id that owns this item is === to req.user.id the delete else dont delete
     return new Business()
         .where({ id: req.params.id })
         .destroy()
